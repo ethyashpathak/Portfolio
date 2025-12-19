@@ -15,7 +15,7 @@ export default function Loader() {
         }}
       >
         <p style={{ fontSize: "14px", marginBottom: "8px" }}>
-          Loading 3D Model
+          Loading something good!
         </p>
 
         {/* Progress Bar */}
