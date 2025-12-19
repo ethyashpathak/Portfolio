@@ -78,6 +78,16 @@ export const mySocials = [
     icon: "/assets/socials/linkedIn.svg",
   },
   {
+    name: "Instagram",
+    href: "https://www.instagram.com/shaswat_0302/",
+    icon: "/assets/socials/instagram.svg",
+  },
+  {
+    name: "Leetcode",
+    href: "https://leetcode.com/u/ethyashpathak/",
+    icon: "/assets/logos/leetcode.png",
+  },
+  {
     name: "github",
     href: "https://github.com/ethyashpathak",
     icon: "/assets/logos/github2.svg",
