@@ -90,14 +90,22 @@ const About = () => {
           </figure>
         </div>
         {/* Grid 4 */}
-        <div className="grid-special-color grid-4">
-          <div className="flex flex-col items-center justify-center gap-4 size-full">
-            <p className="text-center headtext">
-              Do you want to start a project together?
-            </p>
-            <CopyEmailButton />
-          </div>
-        </div>
+        <div
+  className="grid-special-color grid-4 relative bg-cover bg-center"
+  style={{
+    backgroundImage: "url('/assets/shaswattt.jpg')",
+  }}
+>
+  {/* Dark overlay for readability */}
+  <div className="absolute inset-0 bg-black/60"></div>
+
+  <div className="relative flex flex-col items-center justify-center gap-4 size-full">
+    <p className="text-center headtext text-white">
+      Do you want to start a project together?
+    </p>
+    <CopyEmailButton />
+  </div>
+</div>
         {/* Grid 5 */}
         <div className="grid-default-color grid-5">
           <div className="z-10 w-[50%]">

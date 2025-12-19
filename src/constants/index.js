@@ -10,7 +10,7 @@ export const myProjects = [
       "Implemented multi-role authentication (Citizen, Department, Authority) using JWT.",
       "Designed a real-time analytics dashboard with Mapbox for geographic insights.",
     ],
-    href: "",
+    href: "https://cfapp-web.vercel.app/",
     logo: "",
     image: "/assets/projects/CivicFix.png",
     tags: [
@@ -33,11 +33,11 @@ export const myProjects = [
       "Optimized MongoDB aggregation pipelines to improve API performance.",
       "Designed a responsive UI using Tailwind CSS.",
     ],
-    href: "",
+    href: "https://vironex-frontend.vercel.app/",
     logo: "",
     image: "/assets/projects/Vironex.png",
     tags: [
-      { id: 1, name: "react" },
+      { id: 1, name: "React" },
       { id: 2, name: "Node.js" },
       { id: 3, name: "MongoDB" },
       { id: 4, name: "Tailwind CSS" },
@@ -56,13 +56,13 @@ export const myProjects = [
       "Implemented global state management using Redux Toolkit.",
       "Added dark/light mode with responsive design using Tailwind CSS.",
     ],
-    href: "",
+    href: "https://blogsite-six-beige.vercel.app/",
     logo: "",
     image: "/assets/projects/Blogapp.png",
     tags: [
       { id: 1, name: "React" },
       { id: 2, name: "Appwrite" },
-      { id: 3, name: "Redux Toolkit" },
+      { id: 3, name: "Redux" },
       { id: 4, name: "Tailwind CSS" },
     ],
   },
@@ -78,9 +78,9 @@ export const mySocials = [
     icon: "/assets/socials/linkedIn.svg",
   },
   {
-    name: "GitHub",
+    name: "github",
     href: "https://github.com/ethyashpathak",
-    icon: "/assets/socials/github.svg",
+    icon: "/assets/logos/github2.svg",
   },
 ];
 
