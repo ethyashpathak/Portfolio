@@ -1,39 +1,85 @@
-
 import { useState } from "react";
 import Project from "../components/Project";
 import { myProjects } from "../constants";
 import { motion, useMotionValue, useSpring } from "motion/react";
 import { useMediaQuery } from "react-responsive";
+
+// Animation variants
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+};
+
 const Projects = () => {
+  // Mouse-follow motion values
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const springX = useSpring(x, { damping: 10, stiffness: 50 });
   const springY = useSpring(y, { damping: 10, stiffness: 50 });
+
   const handleMouseMove = (e) => {
     x.set(e.clientX + 20);
     y.set(e.clientY + 20);
   };
+
   const [preview, setPreview] = useState(null);
-  const isMobile=useMediaQuery({maxWidth:853})
+  const isMobile = useMediaQuery({ maxWidth: 853 });
+
   return (
-    <section
+    <motion.section
       onMouseMove={handleMouseMove}
       className="relative c-space section-spacing"
       id="projects"
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={containerVariants}
     >
-      <h2 className="text-heading">My Selected Projects</h2>
-      <div className="bg-gradient-to-r from-transparent via-neutral-700 to-transparent mt-12 h-[1px] w-full" />
-      {myProjects.map((project) => (
-        <Project key={project.id} {...project} setPreview={setPreview} />
-      ))}
+      {/* Heading */}
+      <motion.h2 className="text-heading" variants={itemVariants}>
+        My Selected Projects
+      </motion.h2>
+
+      {/* Divider */}
+      <motion.div
+        className="bg-gradient-to-r from-transparent via-neutral-700 to-transparent mt-12 h-[1px] w-full"
+        variants={itemVariants}
+      />
+
+      {/* Project list */}
+      <motion.div className="mt-12" variants={containerVariants}>
+        {myProjects.map((project) => (
+          <motion.div key={project.id} variants={itemVariants}>
+            <Project {...project} setPreview={setPreview} />
+          </motion.div>
+        ))}
+      </motion.div>
+
+      {/* Hover preview */}
       {!isMobile && preview && (
         <motion.img
-          className="fixed top-0 left-0 z-50 object-cover h-56 rounded-lg shadow-lg pointer-events-none w-80"
           src={preview}
+          className="fixed top-0 left-0 z-50 object-cover h-56 w-80 rounded-lg shadow-lg pointer-events-none"
           style={{ x: springX, y: springY }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0 }}
         />
       )}
-    </section>
+    </motion.section>
   );
 };
 

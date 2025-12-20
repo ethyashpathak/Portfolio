@@ -1,7 +1,27 @@
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
+import { motion } from "framer-motion";
 import Alert from "../components/Alert";
 import { Particles } from "../components/Particles";
+
+// Animation variants
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -35,14 +55,14 @@ const Contact = () => {
 
     try {
       await emailjs.send(
-        "service_obaaysk",        // ✅ Gmail service ID
-        "template_ihnsrgq",       // ✅ Your template
+        "service_obaaysk",
+        "template_ihnsrgq",
         {
-          name: formData.name,        // {{name}}
-          email: formData.email,      // {{email}} → Reply-To
-          message: formData.message,  // {{message}}
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
         },
-        "QkaLkOEStA32XZfD8"        // ✅ Public key
+        "QkaLkOEStA32XZfD8"
       );
 
       setIsLoading(false);
@@ -56,9 +76,15 @@ const Contact = () => {
   };
 
   return (
-    
-    <section className="relative flex items-center c-space section-spacing" id="contact">
-        
+    <motion.section
+      className="relative flex items-center c-space section-spacing"
+      id="contact"
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={containerVariants}
+    >
+      {/* Background particles */}
       <Particles
         className="absolute inset-0 -z-50"
         quantity={100}
@@ -66,21 +92,33 @@ const Contact = () => {
         color="#ffffff"
         refresh
       />
-      
-      {showAlert && <Alert type={alertType} text={alertMessage} />}
-       
 
-      <div className="flex flex-col items-center justify-center max-w-md p-5 mx-auto border border-white/10 rounded-2xl bg-primary">
-        <div className="flex flex-col items-start w-full gap-5 mb-10">
+      {showAlert && <Alert type={alertType} text={alertMessage} />}
+
+      {/* Contact card */}
+      <motion.div
+        className="flex flex-col items-center justify-center max-w-md p-5 mx-auto border border-white/10 rounded-2xl bg-primary"
+        variants={fadeUp}
+      >
+        {/* Header */}
+        <motion.div
+          className="flex flex-col items-start w-full gap-5 mb-10"
+          variants={fadeUp}
+        >
           <h2 className="text-heading">Let's Talk</h2>
           <p className="font-normal text-neutral-400">
             Whether you're looking to build a new website, improve your existing
             platform, or bring a unique project to life, I'm here to help.
           </p>
-        </div>
+        </motion.div>
 
-        <form className="w-full" onSubmit={handleSubmit}>
-          <div className="mb-5">
+        {/* Form */}
+        <motion.form
+          className="w-full"
+          onSubmit={handleSubmit}
+          variants={containerVariants}
+        >
+          <motion.div className="mb-5" variants={fadeUp}>
             <label htmlFor="name" className="feild-label">
               Your Good Name
             </label>
@@ -95,9 +133,9 @@ const Contact = () => {
               onChange={handleChange}
               required
             />
-          </div>
+          </motion.div>
 
-          <div className="mb-5">
+          <motion.div className="mb-5" variants={fadeUp}>
             <label htmlFor="email" className="feild-label">
               Email
             </label>
@@ -112,9 +150,9 @@ const Contact = () => {
               onChange={handleChange}
               required
             />
-          </div>
+          </motion.div>
 
-          <div className="mb-5">
+          <motion.div className="mb-5" variants={fadeUp}>
             <label htmlFor="message" className="feild-label">
               Message
             </label>
@@ -128,18 +166,19 @@ const Contact = () => {
               onChange={handleChange}
               required
             />
-          </div>
+          </motion.div>
 
-          <button
+          <motion.button
             type="submit"
             disabled={isLoading}
             className="w-full px-1 py-3 text-lg text-center rounded-md cursor-pointer bg-radial from-lavender to-royal hover-animation disabled:opacity-60"
+            variants={fadeUp}
           >
             {isLoading ? "Sending..." : "Send"}
-          </button>
-        </form>
-      </div>
-    </section>
+          </motion.button>
+        </motion.form>
+      </motion.div>
+    </motion.section>
   );
 };
 
