@@ -52,8 +52,7 @@ const About = () => {
           <div className="z-10">
             <p className="headtext">Hi, I'm Shaswat Pathak!</p>
             <p className="subtext">
-              Over the last few years, I’ve developed strong frontend and backend
-              skills to build dynamic software and web applications.
+              I’m driven by curiosity, whether it’s algorithms, system behavior, or interactive 3D on the web, I enjoy exploring how far code can be pushed.
             </p>
           </div>
           <div className="absolute inset-x-0 pointer-events-none -bottom-4 h-1/2 sm:h-1/3 bg-gradient-to-t from-indigo" />
@@ -114,8 +113,7 @@ const About = () => {
           <div className="z-10 w-[50%]">
             <p className="headText">Tech Stack</p>
             <p className="subtext">
-              I work with a wide range of languages, frameworks, and tools to
-              build scalable applications — and I’m always learning more.
+             I work with a diverse set of languages, frameworks, and tools to build scalable applications, and I adapt quickly to new technologies when given the opportunity.
             </p>
           </div>
           <div className="absolute inset-y-0 md:inset-y-9 w-full h-full start-[50%] md:scale-125">
