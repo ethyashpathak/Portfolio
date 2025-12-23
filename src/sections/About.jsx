@@ -97,7 +97,7 @@ const About = () => {
         {/* Grid 4 */}
         <motion.div
           className="grid-special-color grid-4 relative bg-cover bg-center"
-          style={{ backgroundImage: "url('/assets/shaswattt.jpg')" }}
+          style={{ backgroundImage: "url('/assets/shaswat.jpg')" }}
           variants={fadeUp}
         >
           <div className="absolute inset-0 bg-black/60" />
