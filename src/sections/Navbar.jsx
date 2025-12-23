@@ -6,17 +6,45 @@ function Navigation() {
   return (
     <ul className="nav-ul">
       <li className="nav-li">
-        <a className="nav-link" href="#hero">Home</a>
-      </li>
-      <li className="nav-li">
-        <a className="nav-link" href="#about">About</a>
-      </li>
-      <li className="nav-li">
-        <a className="nav-link" href="#projects">Work</a>
-      </li>
-      <li className="nav-li">
-        <a className="nav-link" href="#contact">Contact</a>
-      </li>
+    <a
+      href="#hero"
+      className="relative nav-link text-neutral-400 transition-colors hover:text-white
+        after:content-[''] after:absolute after:left-0 after:-bottom-1
+        after:h-[2px] after:w-full after:bg-white
+        after:scale-x-0 after:origin-left
+        after:transition-transform after:duration-300
+        hover:after:scale-x-100"
+    >
+      Home
+    </a>
+  </li>
+
+  <li className="nav-li">
+    <a className="relative nav-link text-neutral-400 transition-colors hover:text-white
+        after:content-[''] after:absolute after:left-0 after:-bottom-1
+        after:h-[2px] after:w-full after:bg-white
+        after:scale-x-0 after:origin-left
+        after:transition-transform after:duration-300
+        hover:after:scale-x-100" href="#about">About</a>
+  </li>
+
+  <li className="nav-li">
+    <a className="relative nav-link text-neutral-400 transition-colors hover:text-white
+        after:content-[''] after:absolute after:left-0 after:-bottom-1
+        after:h-[2px] after:w-full after:bg-white
+        after:scale-x-0 after:origin-left
+        after:transition-transform after:duration-300
+        hover:after:scale-x-100" href="#projects">Work</a>
+  </li>
+
+  <li className="nav-li">
+    <a className="relative nav-link text-neutral-400 transition-colors hover:text-white
+        after:content-[''] after:absolute after:left-0 after:-bottom-1
+        after:h-[2px] after:w-full after:bg-white
+        after:scale-x-0 after:origin-left
+        after:transition-transform after:duration-300
+        hover:after:scale-x-100" href="#contact">Contact</a>
+  </li>
 
       {/* Resume link for MOBILE */}
       <li className="nav-li sm:hidden">
@@ -46,7 +74,11 @@ const Navbar = () => {
           <div className="flex items-center gap-10">
             <a
               href="/"
-              className="text-xl font-bold transition-colors text-neutral-400 hover:text-white"
+            className="relative text-xl font-bold text-neutral-400 transition-colors hover:text-white
+               after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full
+               after:scale-x-0 after:bg-white after:origin-left
+               after:transition-transform after:duration-300
+               hover:after:scale-x-100"
             >
               Shaswat
             </a>
