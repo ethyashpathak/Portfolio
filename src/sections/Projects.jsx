@@ -49,7 +49,12 @@ const Projects = () => {
       variants={containerVariants}
     >
       {/* Heading */}
-      <motion.h2 className="text-heading" variants={itemVariants}>
+      <motion.h2 className="relative text-heading hover:text-white
+        after:content-[''] after:absolute after:left-0 after:-bottom-1
+        after:h-[2px] after:w-full after:bg-white
+        after:scale-x-0 after:origin-left
+        after:transition-transform after:duration-300
+        hover:after:scale-x-31" variants={itemVariants}>
         My Selected Projects
       </motion.h2>
 

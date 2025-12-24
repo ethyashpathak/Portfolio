@@ -5,7 +5,7 @@ import { Globe } from "../components/Globe.jsx";
 import CopyEmailButton from "../components/CopyEmailButton";
 import { Frameworks } from "../components/Frameworks.jsx";
 
-// Reusable animation variants
+
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   show: {
@@ -22,7 +22,12 @@ const About = () => {
     <section className="c-space section-spacing" id="about">
       {/* Heading */}
       <motion.h2
-        className="text-heading"
+        className="relative text-heading hover:text-white
+        after:content-[''] after:absolute after:left-0 after:-bottom-1
+        after:h-[2px] after:w-full after:bg-white
+        after:scale-x-0 after:origin-left
+        after:transition-transform after:duration-300
+        hover:after:scale-x-15"
         variants={fadeUp}
         initial="hidden"
         whileInView="show"

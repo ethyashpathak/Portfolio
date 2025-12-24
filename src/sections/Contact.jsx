@@ -105,7 +105,12 @@ const Contact = () => {
           className="flex flex-col items-start w-full gap-5 mb-10"
           variants={fadeUp}
         >
-          <h2 className="text-heading">Let's Talk</h2>
+          <h2 className="relative text-heading hover:text-white
+        after:content-[''] after:absolute after:left-0 after:-bottom-1
+        after:h-[2px] after:w-full after:bg-white
+        after:scale-x-0 after:origin-left
+        after:transition-transform after:duration-300
+        hover:after:scale-x-100">Let's Talk</h2>
           <p className="font-normal text-neutral-400">
             Whether you're looking to build a new website, improve your existing
             platform, or bring a unique project to life, I'm here to help.
